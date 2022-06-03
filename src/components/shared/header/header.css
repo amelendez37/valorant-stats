@@ -11,3 +11,10 @@
   font-size: 1.3rem;
   margin-left: 20px;
 }
+
+.header-btn {
+  color: var(--text-color);
+  width: auto;
+  margin-left: 40px;
+  font-size: 1rem;
+}
