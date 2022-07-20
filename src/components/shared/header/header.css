@@ -12,9 +12,23 @@
   margin-left: 20px;
 }
 
-.header-btn {
-  color: var(--text-color);
-  width: auto;
+.header--btn-container {
   margin-left: 40px;
-  font-size: 1rem;
+  width: auto;
+  cursor: pointer;
+}
+
+.header--btn {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.header--btn-caret {
+  /* color: #4a4e61; */
+  color: #ff4655;
+  padding-left: 8px;
+  font-size: 0.8rem;
+  position: relative;
+  top: 1px;
 }

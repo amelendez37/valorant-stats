@@ -23,9 +23,24 @@ export default function Header({
   return (
     <div className="header">
       <p className="header--title">Valorant Stats</p>
-      <a className="header-btn" onClick={() => setPointCoords(set2)}>
-        Select Map
+      <HeaderButton text="Select Map" onClick={() => setPointCoords(set2)} />
+    </div>
+  );
+}
+
+function HeaderButton({
+  text,
+  onClick,
+}: {
+  text: string;
+  onClick: () => void;
+}) {
+  return (
+    <div className="header--btn-container">
+      <a onClick={onClick} className="header--btn">
+        {text}
       </a>
+      <span className="header--btn-caret">&#9660;</span>
     </div>
   );
 }

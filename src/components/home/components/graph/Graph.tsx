@@ -164,7 +164,6 @@ function PointConnection({
       style={{
         top: `${top}%`,
         left: `${left}%`,
-        border: "1px solid red",
         width: `${length}px`,
         transformOrigin: `0% 0%`,
         transform: `rotate(${rotation}rad)`,
