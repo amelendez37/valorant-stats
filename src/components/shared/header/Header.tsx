@@ -23,24 +23,42 @@ export default function Header({
   return (
     <div className="header">
       <p className="header--title">Valorant Stats</p>
-      <HeaderButton text="Select Map" onClick={() => setPointCoords(set2)} />
+      <MapSelectButton text="Maps" onClick={() => setPointCoords(set2)} />
+      {/* <a onClick={() => setPointCoords(set2)}>test</a> */}
     </div>
   );
 }
 
-function HeaderButton({
+function MapSelectButton({
   text,
   onClick,
 }: {
   text: string;
   onClick: () => void;
 }) {
+  function renderDropdownItems(items: string[]) {
+    return items.map((item) => (
+      <li className="header--dropdown-item">{item}</li>
+    ));
+  }
+
   return (
     <div className="header--btn-container">
       <a onClick={onClick} className="header--btn">
         {text}
       </a>
       <span className="header--btn-caret">&#9660;</span>
+      <ol className="header--dropdown">
+        {renderDropdownItems([
+          "Ascent",
+          "Bind",
+          "Breeze",
+          "Fracture",
+          "Haven",
+          "Icebox",
+          "Pearl",
+        ])}
+      </ol>
     </div>
   );
 }
