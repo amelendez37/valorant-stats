@@ -1,4 +1,4 @@
-import React, { SetStateAction } from "react";
+import React, { useState, SetStateAction } from "react";
 import "./header.css";
 
 const set2 = [
@@ -16,14 +16,19 @@ const set2 = [
 ];
 
 export default function Header({
-  setPointCoords,
+  setPointCoords, // todo: remove this
 }: {
   setPointCoords: SetStateAction<any>;
 }) {
+  const [showMapSelect, setShowMapSelect] = useState(false);
   return (
     <div className="header">
       <p className="header--title">Valorant Stats</p>
-      <MapSelectButton text="Maps" onClick={() => setPointCoords(set2)} />
+      <MapSelectButton
+        text="Maps"
+        show={showMapSelect}
+        toggleShow={() => setShowMapSelect(!showMapSelect)}
+      />
       {/* <a onClick={() => setPointCoords(set2)}>test</a> */}
     </div>
   );
@@ -31,10 +36,12 @@ export default function Header({
 
 function MapSelectButton({
   text,
-  onClick,
+  show,
+  toggleShow,
 }: {
   text: string;
-  onClick: () => void;
+  show: boolean;
+  toggleShow: () => void;
 }) {
   function renderDropdownItems(items: string[]) {
     return items.map((item) => (
@@ -42,12 +49,9 @@ function MapSelectButton({
     ));
   }
 
-  return (
-    <div className="header--btn-container">
-      <a onClick={onClick} className="header--btn">
-        {text}
-      </a>
-      <span className="header--btn-caret">&#9660;</span>
+  function renderDropdown() {
+    if (!show) return null;
+    return (
       <ol className="header--dropdown">
         {renderDropdownItems([
           "Ascent",
@@ -59,6 +63,14 @@ function MapSelectButton({
           "Pearl",
         ])}
       </ol>
+    );
+  }
+
+  return (
+    <div onClick={toggleShow} className="header--btn-container">
+      <a className="header--btn">{text}</a>
+      <span className="header--btn-caret">&#9660;</span>
+      {renderDropdown()}
     </div>
   );
 }

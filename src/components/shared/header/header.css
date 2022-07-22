@@ -13,9 +13,19 @@
 }
 
 .header--btn-container {
-  margin-left: 40px;
-  width: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 80px;
+  margin-left: 30px;
   cursor: pointer;
+  padding: 0 15px;
+}
+
+.header--btn-container:hover {
+  background-color: var(--background-secondary-light);
 }
 
 .header--btn {
@@ -25,7 +35,6 @@
 }
 
 .header--btn-caret {
-  /* color: #4a4e61; */
   color: #ff4655;
   padding-left: 8px;
   font-size: 0.8rem;
@@ -35,18 +44,23 @@
 
 .header--dropdown {
   position: absolute;
-  top: 35px;
+  top: 55px;
   width: 100px;
   background-color: var(--background-primary);
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   list-style: none;
   z-index: 1;
+  padding: 0;
 }
 
 .header--dropdown-item {
   color: var(--text-color);
   font-size: 0.9rem;
   font-weight: 600;
-  padding: 5px;
+  padding: 7px;
+}
+
+.header--dropdown-item:hover {
+  background-color: var(--background-secondary-light);
 }

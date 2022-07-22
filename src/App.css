@@ -1,6 +1,7 @@
 :root {
   --background-primary: #292929;
   --background-secondary: #2c2f3e;
+  --background-secondary-light: #3e4256;
   --text-color: #e0e0e0;
   font-family: Tahoma;
 }
