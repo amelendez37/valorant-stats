@@ -1,5 +1,6 @@
 import React, { useState, SetStateAction } from "react";
 import "./header.css";
+import { getStats } from "../../../api/getStats";
 
 const set2 = [
   [0, 20],
@@ -45,7 +46,13 @@ function MapSelectButton({
 }) {
   function renderDropdownItems(items: string[]) {
     return items.map((item) => (
-      <li className="header--dropdown-item">{item}</li>
+      <li
+        key={item}
+        onClick={() => getStats(item)}
+        className="header--dropdown-item"
+      >
+        {item}
+      </li>
     ));
   }
 
@@ -67,9 +74,11 @@ function MapSelectButton({
   }
 
   return (
-    <div onClick={toggleShow} className="header--btn-container">
-      <a className="header--btn">{text}</a>
-      <span className="header--btn-caret">&#9660;</span>
+    <div onClick={toggleShow} className="header--dropdown-container">
+      <div className="header--btn-container">
+        <a className="header--btn">{text}</a>
+        <span className="header--btn-caret">&#9660;</span>
+      </div>
       {renderDropdown()}
     </div>
   );
