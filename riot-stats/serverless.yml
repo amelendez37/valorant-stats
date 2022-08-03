@@ -1,13 +1,16 @@
+org: aaronm37
+console: true
 service: riot-stats
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
   runtime: nodejs14.x
+  region: us-west-2
 
 functions:
-  hello:
-    handler: handler.hello
+  getMatches:
+    handler: getMatches.getMatches
     events:
       - httpApi:
           path: /
