@@ -1,6 +1,6 @@
 import React, { useState, SetStateAction } from "react";
 import "./header.css";
-import { getStats } from "../../../api/getStats";
+import { getMatchesFor } from "../../../api/getStats";
 
 const set2 = [
   [0, 20],
@@ -48,7 +48,7 @@ function MapSelectButton({
     return items.map((item) => (
       <li
         key={item}
-        onClick={() => getStats(item)}
+        onClick={() => getMatchesFor("Merrendo")}
         className="header--dropdown-item"
       >
         {item}
