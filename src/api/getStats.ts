@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Gateway, LeaguePath } from "./models";
 
-const API_KEY = "RGAPI-88cb2551-0818-4eb3-a31e-a022f4c58e2a";
+const API_KEY = "";
 
 /*
   timestamp: epoch time
